@@ -180,7 +180,30 @@ These metrics make sense when there are predefined outputs like __"classes"__. I
 
 For that reason we have not used the seq2seq results instead used the binary and mutliclass classsification that we had done as part of torchtext assignment
 
+
+### Binary Classification
+This is using the IMDB dataset
+
+The source code is at https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/dataset_IMDB.ipynb 
+
+* Number of classes =2
+
+* Number of training samples=25000
+
+* Number of testing samples=25000
+
+Following are the results on test data
+```
+Accuracy : 0.850
+Precision : 0.8434
+Recall: 0.860
+F1-Score: 0.8517
+
+```
+
 ### Multiclass classification:
+
+The source code is at https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/dataset_YelpReviewFull.ipynb
 
 This is using YelpFullReview dataset 
 * number of classes=5
@@ -191,27 +214,8 @@ Following are the results on test data
 ```
 Accuracy : 0.598
 Precision : 0.597
-Recall: 0.598
-F1-Score: 0.597
-
-```
-
-
-### Binary Classification
-This is using the IMDB dataset
-
-* Number of classes =2
-
-* Number of training samples=25000
-
-* Number of testing samples=25000
-
-Following are the results on test data
-```
-Accuracy : 0.843
-Precision : 0.833
-Recall: 0.854
-F1-Score: 0.844
+Recall: 0.599
+F1-Score: 0.598
 
 ```
 
@@ -250,6 +254,8 @@ if model knows that current word is 'he' it can predict 'is','went','was','sat'.
 
 ### Results
 We made use of the attention based seq2seq model which was developed as part of session6
+
+The source code is at https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/Attention_Language_translation.ipynb 
 
 The data used is the French to English translation script. 
 We will try to see how well the french sentences have been translated. We will use the training data to check how the model is performing. 
@@ -323,6 +329,9 @@ The purpose of BP is to bring down the BLEU score in case it is obvious that the
 ### Results
 We made use of the attention based seq2seq model which was developed as part of session6
 
+The source code is at https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/Attention_Language_translation.ipynb 
+
+
 The data used is the French to English translation script. 
 
 ![image](img/Results.png)
@@ -385,6 +394,8 @@ Finally the F1 is calculated as
 
 ### Results
 We made use of the attention based seq2seq model which was developed as part of session6
+The source code is at https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/Attention_Language_translation.ipynb 
+
 
 The data used is the French to English translation script. 
 
@@ -402,3 +413,12 @@ Where as the BLEU score is 0.82 which means BLEU score is struggling to assess t
 1. https://yoavartzi.com/pub/zkwwa-iclr.2020.slides.pdf
 2. https://jlibovicky.github.io/2019/05/01/MT-Weekly-BERTScore.html
 3. https://aclanthology.org/P02-1040.pdf
+
+
+
+
+# Contributors
+* Rohit Agarwal
+* Kushal Gandhi
+* Vivek Kumar
+* Ammishaddai U
