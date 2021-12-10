@@ -271,6 +271,9 @@ Also the decrease in the perplxity is exponential . The loss has gone down gentl
 ![image](img/loss_perplexity.png)
 
 
+```
+The final perplexity is 1.711
+```
 
 ## BLEU 
 https://aclanthology.org/P02-1040.pdf
@@ -338,6 +341,10 @@ The data used is the French to English translation script.
 
 We can clearly see that as the loss is going down the BLEU is getting better, indicating that the Reference (ground truth) and the candidates are almost matching on an n-gram basis
 we have used a trigram score and then also we have managed to get a good BLEU score which means most of the candidates are very similar to the references 
+
+```
+The final BLEU score is 0.8235
+```
 
 ## BERTSCORE
 
@@ -408,11 +415,15 @@ Where as the BLEU score is 0.82 which means BLEU score is struggling to assess t
 
 ![image](img/bert_bleu.png)
 
+```
+The final BERTScore is 0.971
+```
 
 # References
 1. https://yoavartzi.com/pub/zkwwa-iclr.2020.slides.pdf
 2. https://jlibovicky.github.io/2019/05/01/MT-Weekly-BERTScore.html
 3. https://aclanthology.org/P02-1040.pdf
+4. https://github.com/Tiiiger/bert_score/blob/master/bert_score/score.py
 
 
 
