@@ -260,7 +260,10 @@ We have a ground truth englsih sentence which we will compare with the model gen
 
 In this case we can clearly see the relationship between the loss and the perplexity. As the loss is going down so is the perplexity. 
 
-Also the decrease in the perplxity is exponential . The loss has gone down gently while Perplexity has gone down exponentially implying small changes to model accuracy reduces the perplexity a lot
+Also the decrease in the perplxity is exponential . The loss has gone down gently while Perplexity has gone down exponentially implying small changes to model accuracy reduces the perplexity a lot.
+
+![image](img/loss_perplexity.png)
+
 
 
 ## BLEU 
@@ -392,7 +395,7 @@ We can clearly see that as the loss is going down the BERTScore is getting bette
 We can clearly see BERTSCORE is increasing as the loss is going down. Infact after the 75K samples that we have used for training we can see that BERTScore is almost 1
 Where as the BLEU score is 0.82 which means BLEU score is struggling to assess the semantically similar translations
 
-
+![image](img/bert_bleu.png)
 
 
 # References
