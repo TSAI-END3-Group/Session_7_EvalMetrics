@@ -128,7 +128,7 @@ so to make the recall better you need to reduce FN
 
 The following diagram clearly shows how the machine translation will look like under Precision, Recall and Accuracy evaluation
 
-<diagram>
+![image](img/precision_recall.png)
 
 <hr/>
 
@@ -244,18 +244,23 @@ if model knows that current word is 'he' it can predict 'is','went','was','sat'.
     math.exp(negative_log_likehood_loss)
     ```
     This formula tells that as the value of the loss decreases (accuracy increases then loss decreases) the Perplexity also decreases exponentially. So a small change in accuracy can have a big impact on the perplexity
-    <add a graph if possible>
-
+    
+    ![image](img/exppdf.png)
 
 
 ### Results
 We made use of the attention based seq2seq model which was developed as part of session6
 
 The data used is the French to English translation script. 
+We will try to see how well the french sentences have been translated. We will use the training data to check how the model is performing. 
+We have a ground truth englsih sentence which we will compare with the model generated english sentence
 
 
+![image](img/Results.png)
 
+In this case we can clearly see the relationship between the loss and the perplexity. As the loss is going down so is the perplexity. 
 
+Also the decrease in the perplxity is exponential . The loss has gone down gently while Perplexity has gone down exponentially implying small changes to model accuracy reduces the perplexity a lot
 
 
 ## BLEU 
@@ -301,13 +306,15 @@ It can be called as a __weighted n-gram based Precision score__
     so we can see that the candidate will have 0 BLUE score if we use bigrams and will be discarded easily
 
     In general we will generate the BLUE score using different n-grams and combine them together usng the formula
-    <DIAGRAM>
+    ![image](img/BLUE.png)
+
 
 
 * One more issue that BLUE takes care of is to identify if some Candidates are very small as compared to the references. This is kind of making sure that the Recall is also taken care of. If the candidate length is very small BLUE penalizes it as chances are that some part of the reference will not have been covered. This is called __Brevity Penalty (BP)__
 The purpose of BP is to bring down the BLEU score in case it is obvious that the recall is not maintained
 
-<DIAGRAM> 
+    ![image](img/BP.png)
+
 
 
 ### Results
@@ -315,12 +322,13 @@ We made use of the attention based seq2seq model which was developed as part of 
 
 The data used is the French to English translation script. 
 
+![image](img/Results.png)
+
 We can clearly see that as the loss is going down the BLEU is getting better, indicating that the Reference (ground truth) and the candidates are almost matching on an n-gram basis
-
-
-
+we have used a trigram score and then also we have managed to get a good BLEU score which means most of the candidates are very similar to the references 
 
 ## BERTSCORE
+
 
 There are 2 main problems with the BLEU score 
 
@@ -351,9 +359,43 @@ Cand: This movie has good story
 The BERTScore tries to handle both the problems by doing the following
 1. It makes use of BERT embeddings which are have very strong context capturing ability. So now the semantically correct sentences can also be compared
 
+![image](img/BERT1.png)
+
+in this case even though 'freezing' is not there in the candidate but cold embedding is getting matched to freezing embedding'
 
 2. While calculating the Score it uses both Precision and Recall and generates a F1 score. This score is what matters
 
+![image](img/BERT2.png)
+
+
+We can see that BERTScore is calculating both Precision Metrics and Recall Metrics
+
+The max numbers from both the correlation matrices are combined to calculate the final score
+
+![image](img/BERT3.png)
+
+
+Finally the F1 is calculated as 
+
+![image](img/BERT4.png)
+
+
+### Results
+We made use of the attention based seq2seq model which was developed as part of session6
+
+The data used is the French to English translation script. 
+
+We can clearly see that as the loss is going down the BERTScore is getting better, indicating that the Reference (ground truth) and the candidates are almost matching even semantically
+
+![image](img/Results.png)
+
+We can clearly see BERTSCORE is increasing as the loss is going down. Infact after the 75K samples that we have used for training we can see that BERTScore is almost 1
+Where as the BLEU score is 0.82 which means BLEU score is struggling to assess the semantically similar translations
 
 
 
+
+# References
+1. https://yoavartzi.com/pub/zkwwa-iclr.2020.slides.pdf
+2. https://jlibovicky.github.io/2019/05/01/MT-Weekly-BERTScore.html
+3. https://aclanthology.org/P02-1040.pdf
