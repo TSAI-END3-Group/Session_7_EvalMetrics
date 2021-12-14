@@ -6,6 +6,15 @@ Pick any of your past code and Implement the following metrics (either on separa
 4. BERTScore (here are 1 (Links to an external site.) 2 (Links to an external site.) examples)
 
 
+# Files
+1. [Binary Classification](https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/dataset_IMDB.ipynb) : Demonstrates the metrics __Recall__,__Precision__ in a binary class setting
+
+2. [Multiclass Classification](https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/dataset_YelpReviewFull.ipynb) : Demonstrates the metrics __Recall__,__Precision__ in a multiple class setting
+
+3. [Language translation](https://github.com/TSAI-END3-Group/Session_7_EvalMetrics/blob/master/Attention_Language_translation.ipynb) : Demonstrates the metrics __Perplexity__, __BLUE__ , __BERTScore__
+
+
+
 # Concepts
 
 This assignment involves lot of concepts in order to make sense of the numbers that are getting geenrated
@@ -241,6 +250,9 @@ if model knows that current word is 'he' it can predict 'is','went','was','sat'.
     P(?|'he','is','sitting','on')
 
     now if the model has a context of 'he is sitting on' it can generate 'chair' as that is the most common choice
+
+* In our case we are using the perplexity to check how well the model is predict based on the context which is the combination of __attention__ and __decoder previous hidden state__ context p(W|attention_based_context)
+
 
 * The perplexity is inverse of accuracy. As the acccuracy keeps going up, the perplexity goes down.
 * Mathematically it is calculated as 
